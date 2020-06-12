@@ -7,7 +7,6 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-<<<<<<< HEAD
 
 //Establising connection to DB
 var connection = mysql.createConnection({
@@ -26,8 +25,6 @@ connection.connect(function(err) {
 
   console.log("connected as id " + connection.threadId);
 });
-=======
->>>>>>> ed1d588ae019c8486d24b00d308138797aeb3d84
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
