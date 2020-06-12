@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Ingredients = sequelize.define("Ingredients", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    name: DataTypes.STRING,
+    quantity: DataTypes.INTEGER,
+    measurement: DataTypes.STRING
   });
   return Ingredients;  
 };
