@@ -44,7 +44,8 @@ $('#clearbuttonname').click(function(){
     $("#formID #multiple").empty();
 });
 //can clear local storage if we want a button for that as well.
-localStorage.clear();
+//localStorage.clear();
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // create local storage for storing and retrieving recipe choices
