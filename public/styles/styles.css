@@ -21,3 +21,7 @@
 .sticky + .content {
   padding-top: 60px;
 }
+
+.fourOhFour {
+  max-width: 100%;
+}
