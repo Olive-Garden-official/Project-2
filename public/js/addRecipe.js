@@ -1,9 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, options);
-});
-
-
 $(document).ready(function(){
 
   $('select').formSelect();
@@ -14,14 +8,29 @@ $(document).ready(function(){
   var recipeImage = $(); // Link to image, set default
   var recipeCategory = $(); // String category
   var recipeAuthor = $(); // String name, default to Unknown
+
+  
   
   var submitRecipe = function(event){
-    event.preventDefault();
+    
 
 
 
 
   };
+
+  var addIngredient = function(event){
+    event.preventDefault();
+
+    var ingredientName = $("#ingredientName").val();
+    var ingredientQuantity = $("#ingredientQuantity").val();
+    var ingredientMeasurement = $("#ingredientMeasurement").val();
+
+    console.log(ingredientName, ingredientQuantity, ingredientMeasurement);
+
+  }
+
+  $(".ingredientAdd").on("click", addIngredient);
 
 
 
