@@ -26,7 +26,21 @@ $(document).ready(function(){
     var ingredientQuantity = $("#ingredientQuantity").val();
     var ingredientMeasurement = $("#ingredientMeasurement").val();
 
-    console.log(ingredientName, ingredientQuantity, ingredientMeasurement);
+    var newIngredient = ingredientName + " " + ingredientQuantity + " " + ingredientMeasurement;
+
+    var addedIngredients = $("#selectedIngredients").val();
+    if(addedIngredients === " "){
+      $("#selectedIngredients").html(newIngredient);
+      $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
+    } else{
+      $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
+      $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
+    };
+    
+
+    $("#ingredientName").val("");
+    $("#ingredientQuantity").val("");
+    $("#ingredientMeasurement").val("");
 
   }
 
