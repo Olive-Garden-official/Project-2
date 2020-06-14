@@ -34,7 +34,7 @@ $('<ul />').append($('ul li.chosenRecipe').clone()).appendTo(document.body);
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // make a "clear" button to clear list of recipe items
-$('#clearbuttonname').click(function(){
+$('#clear').click(function(){
     $(':input','#formID')
     .not(':button, :submit, :reset, :hidden')
     .val('')
