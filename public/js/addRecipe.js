@@ -9,13 +9,35 @@ $(document).ready(function(){
   var recipeCategory = $(); // String category
   var recipeAuthor = $(); // String name, default to Unknown
 
-  
+
+  // Have the data property pull from Ingredients table
+  // Name and link to image if wanted
+  $('#ingredientName').autocomplete({
+    data: {
+      "apple": null,
+      "banana": null,
+      "cheddar cheese": null
+    },
+  });
+
+  $('#ingredientQuantity').autocomplete({
+    data: {
+      1: null,
+      "1/2": null,
+      "1/4": null
+    },
+  });
+
+  $('#ingredientMeasurement').autocomplete({
+    data: {
+      "tsp": null,
+      "Tbsp": null,
+      "cup": null
+    },
+  });
+
   
   var submitRecipe = function(event){
-    
-
-
-
 
   };
 
@@ -26,16 +48,25 @@ $(document).ready(function(){
     var ingredientQuantity = $("#ingredientQuantity").val();
     var ingredientMeasurement = $("#ingredientMeasurement").val();
 
-    var newIngredient = ingredientName + " " + ingredientQuantity + " " + ingredientMeasurement;
-
     var addedIngredients = $("#selectedIngredients").val();
-    if(addedIngredients === " "){
-      $("#selectedIngredients").html(newIngredient);
-      $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
-    } else{
-      $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
-      $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
-    };
+
+    // Check for blank values
+    if(ingredientName != "" && ingredientQuantity != "" && ingredientMeasurement != ""){
+      var newIngredient = ingredientName + " " + ingredientQuantity + " " + ingredientMeasurement;
+    } else {
+      var newIngredient = "";
+    }
+    
+    if(newIngredient != "") {
+      if(addedIngredients === " "){
+        $("#selectedIngredients").html(newIngredient);
+        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
+      } else{
+        $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
+        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
+      };
+    }
+    
     
 
     $("#ingredientName").val("");
