@@ -15,6 +15,10 @@ module.exports = function(app) {
     res.render("newrecipe");
   });
 
+  app.get("/recipe", function(req, res) {
+    res.render("recipe");
+  });
+
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
