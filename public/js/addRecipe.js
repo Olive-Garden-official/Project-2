@@ -31,7 +31,7 @@ $(document).ready(function(){
   });
 
   function submitRecipe(recipeData){
-    $.post("route", recipeData);
+    $.post("/api/recipes", recipeData);
   };
   
   function addRecipe(event){
@@ -52,7 +52,7 @@ $(document).ready(function(){
       author: recipeAuthor
     };
 
-    console.log(newRecipe);
+    submitRecipe(newRecipe);
   };
 
   function addIngredient(event){
@@ -89,8 +89,6 @@ $(document).ready(function(){
     }
     
     recipeIngredients.push(ingredient);
-
-    console.log(recipeIngredients);
 
     $("#ingredientName").val("");
     $("#ingredientQuantity").val("");
