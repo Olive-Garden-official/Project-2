@@ -1,42 +1,100 @@
 $(document).ready(function(){
 
-  $('select').formSelect();
+  $('select').formSelect(); 
 
-  var recipeName = $(); // String name
-  var recipeInstructions = $(); //Text string
-  var recipeIngredients = $(); // JSON.stringify the object
-  var recipeImage = $(); // Link to image, set default
-  var recipeCategory = $(); // String category
-  var recipeAuthor = $(); // String name, default to Unknown
+   var recipeIngredients = [];
 
+  // Have the data property pull from Ingredients table
+  // Name and link to image if wanted
+  $('#ingredientName').autocomplete({
+    data: {
+      "apple": null,
+      "banana": null,
+      "cheddar cheese": null
+    },
+  });
+
+  $('#ingredientQuantity').autocomplete({
+    data: {
+      1: null,
+      "1/2": null,
+      "1/4": null
+    },
+  });
+
+  $('#ingredientMeasurement').autocomplete({
+    data: {
+      "tsp": null,
+      "Tbsp": null,
+      "cup": null
+    },
+  });
+
+  function submitRecipe(recipeData){
+    $.post("/api/recipes", recipeData);
+  };
   
-  
-  var submitRecipe = function(event){
-    
+  function addRecipe(event){
+    event.preventDefault();
 
+    var recipeName = $("#recipeName").val();
+    var recipeInstructions = $("#instructions").val(); 
+    var recipeImage = $("#recipeImage").val(); 
+    var recipeCategory = $("#recipeCategory").val(); 
+    var recipeAuthor = $("#recipeAuthor").val(); 
 
+    let newRecipe = {
+      name: recipeName,
+      instructions: recipeInstructions,
+      ingredients: JSON.stringify(recipeIngredients),
+      image: recipeImage,
+      category: recipeCategory,
+      author: recipeAuthor
+    };
 
+    submitRecipe(newRecipe);
 
+    $("#recipeName").val("");
+    $("#instructions").val(""); 
+    $("#recipeImage").val(""); 
+    $("#recipeAuthor").val("Unknown"); 
+    $("#selectedIngredients").val("");
   };
 
-  var addIngredient = function(event){
+  function addIngredient(event){
     event.preventDefault();
 
     var ingredientName = $("#ingredientName").val();
     var ingredientQuantity = $("#ingredientQuantity").val();
     var ingredientMeasurement = $("#ingredientMeasurement").val();
 
-    var newIngredient = ingredientName + " " + ingredientQuantity + " " + ingredientMeasurement;
-
     var addedIngredients = $("#selectedIngredients").val();
-    if(addedIngredients === " "){
-      $("#selectedIngredients").html(newIngredient);
-      $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
-    } else{
-      $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
-      $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
-    };
+
+    // Check for blank values
+    if(ingredientName != "" && ingredientQuantity != "" && ingredientMeasurement != ""){
+      var newIngredient = ingredientName + " " + ingredientQuantity + " " + ingredientMeasurement;
+    } else {
+      var newIngredient = "";
+    }
     
+    if(newIngredient != "") {
+      if(addedIngredients === " "){
+        $("#selectedIngredients").html(newIngredient);
+        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
+      } else{
+        $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
+        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
+      };
+    }
+
+    // name (string), quantity (int), measurement (string)
+    var ingredient = {
+      name: ingredientName,
+      quantity: ingredientQuantity,
+      measurement: ingredientMeasurement
+    }
+    
+    recipeIngredients.push(ingredient);
 
     $("#ingredientName").val("");
     $("#ingredientQuantity").val("");
@@ -45,7 +103,7 @@ $(document).ready(function(){
   }
 
   $(".ingredientAdd").on("click", addIngredient);
-
+  $("#recipeSubmit").on("click", addRecipe);
 
 
 
