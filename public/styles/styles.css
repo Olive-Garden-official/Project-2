@@ -30,6 +30,12 @@
   background-color: #ee6e73;
 }
 
-.homeBtn {
+#homeBtn {
   margin-top: 10%;
+  background-color: #ee6e73;
+}
+
+#clear {
+  margin: 2%;
+  background-color: #ee6e73;
 }
