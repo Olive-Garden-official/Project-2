@@ -21,24 +21,22 @@
 
 #homeBtn {
   margin-top: 10%;
-<<<<<<< HEAD
-  background-color: #ee6e73;
+background-color: #333;
 }
 
 #clear {
   margin: 2%;
-  background-color: #ee6e73;
+  background-color: #333;
 }
 
 #save {
   margin: 2%;
-  background-color: #ee6e73;
+  background-color: #333;
 }
 
 #clrRec {
   margin: 2%;
-  background-color: #ee6e73;
-=======
+  background-color: #333; 
 }
 /* Style the navbar */
 #navbar {
@@ -71,5 +69,4 @@
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
   padding-top: 60px;
->>>>>>> 8e985513bc1acb254a0204a48dfcff7aa05e9854
 }
