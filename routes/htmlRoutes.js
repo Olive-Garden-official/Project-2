@@ -2,11 +2,11 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/recipes", function(req, res) {
-    db.Recipes.findAll({}).then(function(dbExamples) {
+  app.get("/test", function(req, res) {
+    db.Recipes.findAll({}).then(function(tripleD) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: tripleD
       });
     });
   });
