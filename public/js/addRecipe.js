@@ -37,28 +37,32 @@ $(document).ready(function(){
   function addRecipe(event){
     event.preventDefault();
 
-    var recipeName = $("#recipeName").val();
-    var recipeInstructions = $("#instructions").val(); 
-    var recipeImage = $("#recipeImage").val(); 
-    var recipeCategory = $("#recipeCategory").val(); 
-    var recipeAuthor = $("#recipeAuthor").val(); 
+    if($("#recipeName").val() != "" && $("#instructions").val() != "" && $("#selectedIngredients").val() != " "){
+      var recipeName = $("#recipeName").val();
+      var recipeInstructions = $("#instructions").val(); 
+      var recipeImage = $("#recipeImage").val(); 
+      var recipeCategory = $("#recipeCategory").val(); 
+      var recipeAuthor = $("#recipeAuthor").val(); 
 
-    let newRecipe = {
-      name: recipeName,
-      instructions: recipeInstructions,
-      ingredients: JSON.stringify(recipeIngredients),
-      image: recipeImage,
-      category: recipeCategory,
-      author: recipeAuthor
-    };
+      let newRecipe = {
+        name: recipeName,
+        instructions: recipeInstructions,
+        ingredients: JSON.stringify(recipeIngredients),
+        image: recipeImage,
+        category: recipeCategory,
+        author: recipeAuthor
+      };
 
-    submitRecipe(newRecipe);
+      submitRecipe(newRecipe);
 
-    $("#recipeName").val("");
-    $("#instructions").val(""); 
-    $("#recipeImage").val(""); 
-    $("#recipeAuthor").val("Unknown"); 
-    $("#selectedIngredients").val("");
+      $("#recipeName").val("");
+      $("#instructions").val(""); 
+      $("#recipeImage").val(""); 
+      $("#recipeAuthor").val("Unknown"); 
+      $("#selectedIngredients").val("");
+    } else {
+      console.log("Not Valid");
+    }
   };
 
   function addIngredient(event){
