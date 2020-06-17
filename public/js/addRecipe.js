@@ -2,6 +2,8 @@ $(document).ready(function(){
 
   $('select').formSelect(); 
 
+   var recipeIngredients = [];
+
   // Have the data property pull from Ingredients table
   // Name and link to image if wanted
   $('#ingredientName').autocomplete({
@@ -27,32 +29,30 @@ $(document).ready(function(){
       "cup": null
     },
   });
+
+  function submitRecipe(recipeData){
+    $.post("route", recipeData);
+  };
   
   function addRecipe(event){
     event.preventDefault();
 
-    var recipeName = $("#recipeName").val(); // String name
-    var recipeInstructions = $("#instructions").val(); //Text string
-    var recipeIngredients; // JSON.stringify the object
-    var recipeImage = $("#recipeImage").val(); // Link to image, set default
-    var recipeCategory = $("#recipeCategory").val(); // String category
-    var recipeAuthor = $("#recipeAuthor").val(); // String name, default to Unknown
+    var recipeName = $("#recipeName").val();
+    var recipeInstructions = $("#instructions").val(); 
+    var recipeImage = $("#recipeImage").val(); 
+    var recipeCategory = $("#recipeCategory").val(); 
+    var recipeAuthor = $("#recipeAuthor").val(); 
 
     let newRecipe = {
       name: recipeName,
       instructions: recipeInstructions,
-      ingredients: recipeIngredients,
+      ingredients: JSON.stringify(recipeIngredients),
       image: recipeImage,
       category: recipeCategory,
       author: recipeAuthor
     };
 
     console.log(newRecipe);
-  };
-
-  
-  function submitRecipe(recipeData){
-    $.post("route", recipeData);
   };
 
   function addIngredient(event){
@@ -81,9 +81,16 @@ $(document).ready(function(){
       };
     }
 
-    // Function to add to the object at the same time?
+    // name (string), quantity (int), measurement (string)
+    var ingredient = {
+      name: ingredientName,
+      quantity: ingredientQuantity,
+      measurement: ingredientMeasurement
+    }
     
-    
+    recipeIngredients.push(ingredient);
+
+    console.log(recipeIngredients);
 
     $("#ingredientName").val("");
     $("#ingredientQuantity").val("");
