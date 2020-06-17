@@ -51,6 +51,11 @@ $('#clear').click(function(){
 // create local storage for storing and retrieving recipe choices
 //uses cookies, sessionStorage, and localStorage to save and reuse user data across a user’s session.
 
+var input = $('#save').value;
+localStorage.setItem('server', input);
+
+$('#save').value = localStorage.getItem('server');
+
 
 localStorage.setItem("recipe", recipeVariable);
 localStorage.setItem("ingredient", ingredientVariable);
