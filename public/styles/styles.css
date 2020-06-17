@@ -21,3 +21,15 @@
 .sticky + .content {
   padding-top: 60px;
 }
+
+.fourOhFour {
+  max-width: 100%;
+}
+
+.ingredientAdd {
+  background-color: #ee6e73;
+}
+
+.homeBtn {
+  margin-top: 10%;
+}
