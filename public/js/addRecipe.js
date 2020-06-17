@@ -1,14 +1,6 @@
 $(document).ready(function(){
 
-  $('select').formSelect();
-
-  var recipeName = $(); // String name
-  var recipeInstructions = $(); //Text string
-  var recipeIngredients = $(); // JSON.stringify the object
-  var recipeImage = $(); // Link to image, set default
-  var recipeCategory = $(); // String category
-  var recipeAuthor = $(); // String name, default to Unknown
-
+  $('select').formSelect(); 
 
   // Have the data property pull from Ingredients table
   // Name and link to image if wanted
@@ -35,13 +27,35 @@ $(document).ready(function(){
       "cup": null
     },
   });
-
   
-  var submitRecipe = function(event){
+  function addRecipe(event){
+    event.preventDefault();
 
+    var recipeName = $("#recipeName").val(); // String name
+    var recipeInstructions = $("#instructions").val(); //Text string
+    var recipeIngredients; // JSON.stringify the object
+    var recipeImage = $("#recipeImage").val(); // Link to image, set default
+    var recipeCategory = $("#recipeCategory").val(); // String category
+    var recipeAuthor = $("#recipeAuthor").val(); // String name, default to Unknown
+
+    let newRecipe = {
+      name: recipeName,
+      instructions: recipeInstructions,
+      ingredients: recipeIngredients,
+      image: recipeImage,
+      category: recipeCategory,
+      author: recipeAuthor
+    };
+
+    console.log(newRecipe);
   };
 
-  var addIngredient = function(event){
+  
+  function submitRecipe(recipeData){
+    $.post("route", recipeData);
+  };
+
+  function addIngredient(event){
     event.preventDefault();
 
     var ingredientName = $("#ingredientName").val();
@@ -66,6 +80,8 @@ $(document).ready(function(){
         $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
       };
     }
+
+    // Function to add to the object at the same time?
     
     
 
@@ -76,7 +92,7 @@ $(document).ready(function(){
   }
 
   $(".ingredientAdd").on("click", addIngredient);
-
+  $("#recipeSubmit").on("click", addRecipe);
 
 
 
