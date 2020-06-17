@@ -53,6 +53,12 @@ $(document).ready(function(){
     };
 
     submitRecipe(newRecipe);
+
+    $("#recipeName").val("");
+    $("#instructions").val(""); 
+    $("#recipeImage").val(""); 
+    $("#recipeAuthor").val("Unknown"); 
+    $("#selectedIngredients").val("");
   };
 
   function addIngredient(event){
