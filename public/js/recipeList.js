@@ -43,6 +43,7 @@ $('#clear').click(function(){
 
     $("#formID #multiple").empty();
 });
+
 //can clear local storage if we want a button for that as well.
 //localStorage.clear();
 
@@ -50,12 +51,28 @@ $('#clear').click(function(){
 
 // create local storage for storing and retrieving recipe choices
 //uses cookies, sessionStorage, and localStorage to save and reuse user data across a user’s session.
+$('#save').click(function(){ 
+  var input = $('#save').value;
+  localStorage.setItem('server', input);
+
+  $('#save').value = localStorage.getItem('server');
+
+});
+
+//clears local storage of saved recipes
+$('#clrRec').click(function(){ 
+  var clear = $('#clrRec').value;
+  localStorage.clear('server', clear);
+
+  $('#save').value = localStorage.getItem('server');
+
+});
 
 
-localStorage.setItem("recipe", recipeVariable);
-localStorage.setItem("ingredient", ingredientVariable);
-//can also use session storage to call items
+// localStorage.setItem("recipe", recipeVariable);
+// localStorage.setItem("ingredient", ingredientVariable);
+// //can also use session storage to call items
 
 
-document.getElementById("").innerHTML = localStorage.getItem("");
+// document.getElementById("").innerHTML = localStorage.getItem("");
 
