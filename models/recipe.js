@@ -1,11 +1,30 @@
 module.exports = function(sequelize, DataTypes) {
     var Recipes = sequelize.define("Recipes", {
-      name: DataTypes.STRING,
-      instructions: DataTypes.TEXT,
-      ingredients: DataTypes.JSON,
-      image: DataTypes.STRING,
-      category: DataTypes.STRING,
-      author: DataTypes.STRING
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      instructions: {
+        type: DataTypes.TEXT,
+        allowNull: false
+      },
+      ingredients: {
+        type: DataTypes.JSON,
+        allowNull: false
+      },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      category: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      author: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        default: "Unknown"
+      }
     });
     return Recipes;  
   };
