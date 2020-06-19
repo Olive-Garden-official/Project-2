@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $('select').formSelect(); 
+  $('.modal').modal();
 
    var recipeIngredients = [];
 
@@ -61,9 +62,7 @@ $(document).ready(function(){
       $("#recipeImage").val(""); 
       $("#recipeAuthor").val("Unknown"); 
       $("#selectedIngredients").val("");
-    } else {
-      console.log("Not Valid");
-    }
+    }; 
   };
 
   function addIngredient(event){
@@ -104,7 +103,7 @@ $(document).ready(function(){
     };
   };
 
-  $(".ingredientAdd").on("click", addIngredient);
+  $("#ingredientAdd").on("click", addIngredient);
   $("#recipeSubmit").on("click", addRecipe);
 
 

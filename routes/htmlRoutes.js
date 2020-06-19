@@ -19,15 +19,13 @@ module.exports = function(app) {
     res.render("recipe", {
       style: '..public/styles/stlyes.css'
     });
-    
   });
 
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  // Load recipe page and pass in an example by id
+  app.get("/recipe/:id", function(req, res) {
+    db.Recipes.findOne({ where: { id: req.params.id } }).then(function(oneRecipe) {
+      res.render("recipe", {
+        recipe: oneRecipe
       });
     });
   });
