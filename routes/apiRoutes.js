@@ -10,17 +10,29 @@ module.exports = function(app) {
 
   // Get ingredient names
   app.get("/api/ingredients/name", function(req, res){
-
+    db.Ingredients.findAll({
+      attributes: ["name"]
+    }).then(function(allNames){
+      res.json(allNames);
+    });
   });
 
   // Get ingredient quantities
   app.get("/api/ingredients/quantity", function(req, res){
-
+    db.Ingredients.findAll({
+      attributes: ["quantity"]
+    }).then(function(allQuantity){
+      res.json(allQuantity);
+    });
   });
 
   // Get ingredient measurements
   app.get("/api/ingredients/measurement", function(req, res){
-
+    db.Ingredients.findAll({
+      attributes: ["measurement"]
+    }).then(function(allMeasurement){
+      res.json(allMeasurement);
+    });
   });
 
   // Create a new recipe
