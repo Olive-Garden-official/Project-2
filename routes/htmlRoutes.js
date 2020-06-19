@@ -21,6 +21,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/shopping", function(req, res) {
+    res.render("shopping");
+  });
+
   // Load recipe page and pass in an example by id
   app.get("/recipe/:id", function(req, res) {
     db.Recipes.findOne({ where: { id: req.params.id } }).then(function(oneRecipe) {
