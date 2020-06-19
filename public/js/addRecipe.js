@@ -37,13 +37,14 @@ $(document).ready(function(){
   function addRecipe(event){
     event.preventDefault();
 
-    if($("#recipeName").val() != "" && $("#instructions").val() != "" && $("#selectedIngredients").val() != " "){
-      var recipeName = $("#recipeName").val();
-      var recipeInstructions = $("#instructions").val(); 
-      var recipeImage = $("#recipeImage").val(); 
-      var recipeCategory = $("#recipeCategory").val(); 
-      var recipeAuthor = $("#recipeAuthor").val(); 
+    var recipeName = $("#recipeName").val();
+    var recipeInstructions = $("#instructions").val(); 
+    var recipeImage = $("#recipeImage").val(); 
+    var recipeCategory = $("#recipeCategory").val(); // Actual selection
+    var categorySelection =  $("#recipeCategory").prop("value"); // Check that it is not the default
+    var recipeAuthor = $("#recipeAuthor").val(); 
 
+    if(recipeName != "" && recipeInstructions != "" && recipeIngredients != " " && categorySelection > 0){
       let newRecipe = {
         name: recipeName,
         instructions: recipeInstructions,
@@ -84,10 +85,8 @@ $(document).ready(function(){
     if(newIngredient != "") {
       if(addedIngredients === " "){
         $("#selectedIngredients").html(newIngredient);
-        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
       } else{
         $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
-        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
       };
     }
 
@@ -103,7 +102,7 @@ $(document).ready(function(){
     $("#ingredientName").val("");
     $("#ingredientQuantity").val("");
     $("#ingredientMeasurement").val("");
-
+    M.textareaAutoResize($('#selectedIngredients'));
   }
 
   $(".ingredientAdd").on("click", addIngredient);
