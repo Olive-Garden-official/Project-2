@@ -61,7 +61,7 @@
 #navbar {
   overflow: hidden;
   background-color:rebeccapurple;
-  height:75px;
+  height:85px;
   font-size: 15px;
   padding-top:20px;
   z-index: 99;
@@ -90,14 +90,28 @@
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
-  
-}
+
+
 body{
   font-family: 'Roboto', sans-serif;
 }
-
-.titlecontent{
+.headerimage{
+  position: relative;
   text-align: center;
+  color: white;
+  width:100%;
+}
+.pagetitle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  text-shadow: 2px 2px black;
+}
+header{
+  position: relative;
+}
+.pagetitle ,.pageinital{
+  font-family: 'Abril Fatface', cursive;
 }
