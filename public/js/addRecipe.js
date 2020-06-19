@@ -34,9 +34,13 @@ $(document).ready(function(){
   function submitRecipe(recipeData){
     $.post("/api/recipes", recipeData);
   };
+
+  function submitIngredients(ingredientData){
+    $.post("/api/ingredients", ingredientData);
+  }
   
   function addRecipe(event){
-    event.preventDefault();
+    event.preventDefault();   
 
     var recipeName = $("#recipeName").val();
     var recipeInstructions = $("#instructions").val(); 
@@ -56,6 +60,10 @@ $(document).ready(function(){
       };
 
       submitRecipe(newRecipe);
+      recipeIngredients.forEach(item =>
+        submitIngredients(JSON.stringify(item))
+      );
+      
 
       $("#recipeName").val("");
       $("#instructions").val(""); 
