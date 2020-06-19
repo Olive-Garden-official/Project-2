@@ -22,24 +22,35 @@
   padding-top:100px;
 }
 
+#recipe {
+  width: 100%;
+  text-align: center;
+  padding-top: .5%;
+  padding-bottom: .5%;
+  background-color: grey;
+}
+
 #homeBtn {
   margin-top: 10%;
-background-color: #8d6e63;
+  background-color: rebeccapurple;
+  float: left;
 }
 
 #clear {
   margin: 2%;
-  background-color: #8d6e63;
+  background-color: rebeccapurple;
+  float: left;
 }
 
 #save {
   margin: 2%;
-  background-color: #8d6e63;
+  background-color: rebeccapurple;
 }
 
 #clrRec {
   margin: 2%;
-  background-color: #8d6e63; 
+  background-color: rebeccapurple; 
+  float: right;
 }
 /* Style the navbar */
 #navbar {
