@@ -16,7 +16,10 @@ module.exports = function(app) {
   });
 
   app.get("/recipe", function(req, res) {
-    res.render("recipe");
+    res.render("recipe", {
+      style: '..public/styles/stlyes.css'
+    });
+    
   });
 
 
