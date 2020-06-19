@@ -21,22 +21,22 @@
 
 #homeBtn {
   margin-top: 10%;
-background-color: #8d6e63;
+background-color: rebeccapurple;
 }
 
 #clear {
   margin: 2%;
-  background-color: #8d6e63;
+  background-color: rebeccapurple;
 }
 
 #save {
   margin: 2%;
-  background-color: #8d6e63;
+  background-color: rebeccapurple;
 }
 
 #clrRec {
   margin: 2%;
-  background-color: #8d6e63; 
+  background-color: rebeccapurple; 
 }
 /* Style the navbar */
 #navbar {
