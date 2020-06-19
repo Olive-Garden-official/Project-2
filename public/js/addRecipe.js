@@ -17,8 +17,8 @@ $(document).ready(function(){
   $('#ingredientQuantity').autocomplete({
     data: {
       1: null,
-      "1/2": null,
-      "1/4": null
+      0.25: null,
+      0.75: null
     },
   });
 
@@ -88,22 +88,21 @@ $(document).ready(function(){
       } else{
         $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
       };
-    }
+      // name (string), quantity (int), measurement (string)
+      let ingredient = {
+        name: ingredientName,
+        quantity: ingredientQuantity,
+        measurement: ingredientMeasurement
+      }
+      
+      recipeIngredients.push(ingredient);
 
-    // name (string), quantity (int), measurement (string)
-    var ingredient = {
-      name: ingredientName,
-      quantity: ingredientQuantity,
-      measurement: ingredientMeasurement
-    }
-    
-    recipeIngredients.push(ingredient);
-
-    $("#ingredientName").val("");
-    $("#ingredientQuantity").val("");
-    $("#ingredientMeasurement").val("");
-    M.textareaAutoResize($('#selectedIngredients'));
-  }
+      $("#ingredientName").val("");
+      $("#ingredientQuantity").val("");
+      $("#ingredientMeasurement").val("");
+      M.textareaAutoResize($('#selectedIngredients'));
+    };
+  };
 
   $(".ingredientAdd").on("click", addIngredient);
   $("#recipeSubmit").on("click", addRecipe);
