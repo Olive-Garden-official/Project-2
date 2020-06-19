@@ -24,6 +24,7 @@
 
 #recipeHolder {
   width: 155%;
+  position: inherit;
 }
 
 #recipe {
@@ -31,32 +32,47 @@
   text-align: center;
   padding-top: .5%;
   padding-bottom: .5%;
-  background-image: linear-gradient(to bottom, rebeccapurple,  #5e276d);
+  background-color: #7e57c2;
   font-family: 'Roboto', sans-serif;
 }
 
 #homeBtn {
   margin-top: 10%;
-  background-color: rebeccapurple;
+  background-color: #7e57c2;
   margin-left: 60%;
+  position: inherit;
 }
 
 #clear {
   margin: 2%;
-  background-color: rebeccapurple;
+  background-color: #7e57c2;
   float: left;
+  position: inherit;
 }
 
 #save {
   margin: 2%;
-  background-color: rebeccapurple;
+  background-color: #7e57c2;
+  position: inherit;
 }
 
 #clrRec {
   margin: 2%;
-  background-color: rebeccapurple; 
+  background-color: #7e57c2; 
   float: right;
+  position: inherit;
 }
+
+#recHead {
+  font-family:'Abril Fatface', cursive; 
+  color: #f2f2f2;
+  text-shadow: 2px 2px black;
+}
+
+#topBtn {
+  margin-top: 2%;
+}
+
 /* Style the navbar */
 #navbar {
   overflow: hidden;

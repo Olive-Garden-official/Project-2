@@ -1,5 +1,5 @@
 <div id="recipe">
-<h4 class="collection-header">Recipes</h4>
+<h4 class="collection-header" id="recHead" >Recipes</h4>
 </div>  
   <div class="container">
     <div class="row">
@@ -14,13 +14,16 @@
               <p>
                 <strong>Description:</strong> {{recipe.description}}</p>
             </div>
-              <div>
+        </div>
+              <div class="container row col s12" id="topBtn">
                 <a class="waves-effect waves-light btn" id="clear">Clear</a>
                 <a class="waves-effect waves-light btn" id="save">Save</a>
-                <a class="waves-effect waves-light btn" id="clrRec">Clear Recipes</a>
               </div>
-        </div>
-        <a href="/" class="waves-effect waves-light btn" id="homeBtn">← Back To Home</a>
+              <div class="container row col s12">
+                <a class="waves-effect waves-light btn" id="clrRec">Clear Recipes</a>
+                <a href="/" class="waves-effect waves-light btn" id="homeBtn">← Back To Home</a>
+              </div>
+        
       </div>
     </div>
   </div>
