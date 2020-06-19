@@ -8,6 +8,21 @@ module.exports = function(app) {
     });
   });
 
+  // Get ingredient names
+  app.get("/api/ingredients/name", function(req, res){
+
+  });
+
+  // Get ingredient quantities
+  app.get("/api/ingredients/quantity", function(req, res){
+
+  });
+
+  // Get ingredient measurements
+  app.get("/api/ingredients/measurement", function(req, res){
+
+  });
+
   // Create a new recipe
   app.post("/api/recipes", function(req, res) {
     db.Recipes.create(req.body).then(function(oneRecipe) {
@@ -31,12 +46,7 @@ module.exports = function(app) {
       }).then(function(created) {
         res.json(created);
       });
-    }
-    // const [item, created] = await db.Ingredient.findOrCreate({
-    
-    // }).then(function(oneRecipe) {
-    //   res.json(oneRecipe);
-    // });
+    };
   });
 
 };
