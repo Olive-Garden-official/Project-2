@@ -22,6 +22,10 @@
   padding-top:100px;
 }
 
+#recipeHolder {
+  width: 155%;
+}
+
 #recipe {
   width: 100%;
   text-align: center;
@@ -33,7 +37,7 @@
 #homeBtn {
   margin-top: 10%;
   background-color: rebeccapurple;
-  float: left;
+  margin-left: 60%;
 }
 
 #clear {
