@@ -31,6 +31,18 @@ $(document).ready(function(){
     },
   });
 
+  function getNames(){
+    return $.ajax({
+      url: "api/recipes/name",
+      type: "GET"
+    });
+  };
+  
+  getNames().then(function(listNames){
+    console.log(listNames);
+  });
+
+
   function submitRecipe(recipeData){
     $.post("/api/recipes", recipeData);
   };
@@ -40,7 +52,11 @@ $(document).ready(function(){
   }
   
   function addRecipe(event){
-    event.preventDefault();   
+    event.preventDefault();  
+    
+    recipeIngredients.forEach(item =>
+      submitIngredients(JSON.stringify(item))
+    );
 
     var recipeName = $("#recipeName").val();
     var recipeInstructions = $("#instructions").val(); 
@@ -60,9 +76,9 @@ $(document).ready(function(){
       };
 
       submitRecipe(newRecipe);
-      recipeIngredients.forEach(item =>
-        submitIngredients(JSON.stringify(item))
-      );
+      
+      
+
       
 
       $("#recipeName").val("");

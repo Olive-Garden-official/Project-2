@@ -11,7 +11,8 @@ module.exports = function(app) {
   // Get ingredient names
   app.get("/api/ingredients/name", function(req, res){
     db.Ingredients.findAll({
-      attributes: ["name"]
+      attributes: ["name"],
+      group: "name"
     }).then(function(allNames){
       res.json(allNames);
     });
@@ -20,7 +21,8 @@ module.exports = function(app) {
   // Get ingredient quantities
   app.get("/api/ingredients/quantity", function(req, res){
     db.Ingredients.findAll({
-      attributes: ["quantity"]
+      attributes: ["quantity"],
+      group: "quantity"
     }).then(function(allQuantity){
       res.json(allQuantity);
     });
@@ -29,7 +31,8 @@ module.exports = function(app) {
   // Get ingredient measurements
   app.get("/api/ingredients/measurement", function(req, res){
     db.Ingredients.findAll({
-      attributes: ["measurement"]
+      attributes: ["measurement"],
+      group: "measurement"
     }).then(function(allMeasurement){
       res.json(allMeasurement);
     });
@@ -51,9 +54,6 @@ module.exports = function(app) {
           name: item.name,
           quantity: item.quantity,
           measurement: item.measurement
-        },
-        defaults:{
-
         }
       }).then(function(created) {
         res.json(created);
