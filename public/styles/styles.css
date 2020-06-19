@@ -22,18 +22,23 @@
   padding-top:100px;
 }
 
+#recipeHolder {
+  width: 155%;
+}
+
 #recipe {
   width: 100%;
   text-align: center;
   padding-top: .5%;
   padding-bottom: .5%;
-  background-color: grey;
+  background-image: linear-gradient(to bottom, rebeccapurple,  #5e276d);
+  font-family: 'Roboto', sans-serif;
 }
 
 #homeBtn {
   margin-top: 10%;
   background-color: rebeccapurple;
-  float: left;
+  margin-left: 60%;
 }
 
 #clear {
