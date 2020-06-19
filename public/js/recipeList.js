@@ -1,6 +1,6 @@
 //create a list for adding a recipes to a list that will be stored locally
 
-const ingredients = require("../../models/ingredients");
+// const ingredients = require("../../models/ingredients");
 
 var items = [''];
 var rList = $('ul.mylist');
@@ -35,13 +35,13 @@ $('<ul />').append($('ul li.chosenRecipe').clone()).appendTo(document.body);
 
 // make a "clear" button to clear list of recipe items
 $('#clear').click(function(){
-    $(':input','#formID')
+    $(':input','#recipeHolder')
     .not(':button, :submit, :reset, :hidden')
     .val('')
     .removeAttr('checked')
     .removeAttr('selected');
 
-    $("#formID #multiple").empty();
+    $("#recipeHolder").empty();
 });
 
 //can clear local storage if we want a button for that as well.
@@ -51,11 +51,13 @@ $('#clear').click(function(){
 
 // create local storage for storing and retrieving recipe choices
 //uses cookies, sessionStorage, and localStorage to save and reuse user data across a user’s session.
-$('#save').click(function(){ 
+$('#save').on('click', function(){ 
   var input = $('#save').value;
   localStorage.setItem('server', input);
 
   $('#save').value = localStorage.getItem('server');
+
+  console.log("Item saved");
 
 });
 

@@ -22,6 +22,9 @@ module.exports = function(app) {
     
   });
 
+  app.get("/shopping", function(req, res) {
+    res.render("shopping");
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
