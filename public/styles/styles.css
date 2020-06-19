@@ -31,7 +31,8 @@
   text-align: center;
   padding-top: .5%;
   padding-bottom: .5%;
-  background-color: grey;
+  background-image: linear-gradient(to bottom, rebeccapurple,  #5e276d);
+  font-family: 'Roboto', sans-serif;
 }
 
 #homeBtn {
