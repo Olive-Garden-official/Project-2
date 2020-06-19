@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $('select').formSelect(); 
+  $('.modal').modal();
 
    var recipeIngredients = [];
 
@@ -17,8 +18,8 @@ $(document).ready(function(){
   $('#ingredientQuantity').autocomplete({
     data: {
       1: null,
-      "1/2": null,
-      "1/4": null
+      0.25: null,
+      0.75: null
     },
   });
 
@@ -40,25 +41,28 @@ $(document).ready(function(){
     var recipeName = $("#recipeName").val();
     var recipeInstructions = $("#instructions").val(); 
     var recipeImage = $("#recipeImage").val(); 
-    var recipeCategory = $("#recipeCategory").val(); 
+    var recipeCategory = $("#recipeCategory").val(); // Actual selection
+    var categorySelection =  $("#recipeCategory").prop("value"); // Check that it is not the default
     var recipeAuthor = $("#recipeAuthor").val(); 
 
-    let newRecipe = {
-      name: recipeName,
-      instructions: recipeInstructions,
-      ingredients: JSON.stringify(recipeIngredients),
-      image: recipeImage,
-      category: recipeCategory,
-      author: recipeAuthor
-    };
+    if(recipeName != "" && recipeInstructions != "" && recipeIngredients != " " && categorySelection > 0){
+      let newRecipe = {
+        name: recipeName,
+        instructions: recipeInstructions,
+        ingredients: JSON.stringify(recipeIngredients),
+        image: recipeImage,
+        category: recipeCategory,
+        author: recipeAuthor
+      };
 
-    submitRecipe(newRecipe);
+      submitRecipe(newRecipe);
 
-    $("#recipeName").val("");
-    $("#instructions").val(""); 
-    $("#recipeImage").val(""); 
-    $("#recipeAuthor").val("Unknown"); 
-    $("#selectedIngredients").val("");
+      $("#recipeName").val("");
+      $("#instructions").val(""); 
+      $("#recipeImage").val(""); 
+      $("#recipeAuthor").val("Unknown"); 
+      $("#selectedIngredients").val("");
+    }; 
   };
 
   function addIngredient(event){
@@ -80,29 +84,26 @@ $(document).ready(function(){
     if(newIngredient != "") {
       if(addedIngredients === " "){
         $("#selectedIngredients").html(newIngredient);
-        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
       } else{
         $("#selectedIngredients").html(addedIngredients + "\n" + newIngredient);
-        $("#selectedIngredients").height($("#selectedIngredients").height() + 16);
       };
-    }
+      // name (string), quantity (int), measurement (string)
+      let ingredient = {
+        name: ingredientName,
+        quantity: ingredientQuantity,
+        measurement: ingredientMeasurement
+      }
+      
+      recipeIngredients.push(ingredient);
 
-    // name (string), quantity (int), measurement (string)
-    var ingredient = {
-      name: ingredientName,
-      quantity: ingredientQuantity,
-      measurement: ingredientMeasurement
-    }
-    
-    recipeIngredients.push(ingredient);
+      $("#ingredientName").val("");
+      $("#ingredientQuantity").val("");
+      $("#ingredientMeasurement").val("");
+      M.textareaAutoResize($('#selectedIngredients'));
+    };
+  };
 
-    $("#ingredientName").val("");
-    $("#ingredientQuantity").val("");
-    $("#ingredientMeasurement").val("");
-
-  }
-
-  $(".ingredientAdd").on("click", addIngredient);
+  $("#ingredientAdd").on("click", addIngredient);
   $("#recipeSubmit").on("click", addRecipe);
 
 

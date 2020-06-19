@@ -10,13 +10,16 @@
   margin-bottom:-10px;
 }
 
-
 .fourOhFour {
   max-width: 100%;
 }
 
-.ingredientAdd {
-  background-color: #ee6e73;
+#ingredientAdd, #recipeSubmit {
+  background-color: rebeccapurple;
+}
+
+.newrecipeform{
+  padding-top:100px;
 }
 
 #homeBtn {
@@ -78,9 +81,7 @@ background-color: #8d6e63;
 body{
   font-family: 'Roboto', sans-serif;
 }
-.newrecipeform{
-  padding-top:100px;
-}
+
 .titlecontent{
   text-align: center;
 }
