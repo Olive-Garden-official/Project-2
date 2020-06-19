@@ -7,13 +7,13 @@ $(document).ready(function(){
 
   // Have the data property pull from Ingredients table
   // Name and link to image if wanted
-  $('#ingredientName').autocomplete({
-    data: {
-      "apple": null,
-      "banana": null,
-      "cheddar cheese": null
-    },
-  });
+  // $('#ingredientName').autocomplete({
+  //   data: {
+  //     "apple": null,
+  //     "banana": null,
+  //     "cheddar cheese": null
+  //   },
+  // });
 
   $('#ingredientQuantity').autocomplete({
     data: {
@@ -32,16 +32,22 @@ $(document).ready(function(){
   });
 
   function getNames(){
-    return $.ajax({
-      url: "api/recipes/name",
+    var data = {};
+
+    $.ajax({
+      url: "api/ingredients/name",
       type: "GET"
+    }).then(function(listNames){
+      listNames.forEach(item => {
+        data[item.name] = null;
+      });
+      $('#ingredientName').autocomplete({
+        data
+      });
     });
   };
-  
-  getNames().then(function(listNames){
-    console.log(listNames);
-  });
 
+  getNames();
 
   function submitRecipe(recipeData){
     $.post("/api/recipes", recipeData);
