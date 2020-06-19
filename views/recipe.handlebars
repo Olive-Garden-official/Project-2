@@ -1,27 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col s8">
-      <div class="card mt-4">
-        <div class="card-body" id="recipeHolder">
-          <h5 class="card-title">Recipes</h5>
-          <p>
-            <strong>ID</strong>: {{recipe.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{recipe.text}}</p>
-          <p>
-            <strong>Description:</strong> {{recipe.description}}</p>
+<div id="recipe">
+<h4 class="collection-header">Recipes</h4>
+</div>  
+  <div class="container">
+    <div class="row">
+      <div class="col s8">
+        <div class="card mt-4">
+            <div class="card-body" id="recipeHolder">
+              <p>
+                <strong>ID</strong>: {{recipe.id}}</p>
+              <p>
+              <p>
+                <strong>Text</strong>: {{recipe.text}}</p>
+              <p>
+                <strong>Description:</strong> {{recipe.description}}</p>
+            </div>
+              <div>
+                <a class="waves-effect waves-light btn" id="clear">Clear</a>
+                <a class="waves-effect waves-light btn" id="save">Save</a>
+                <a class="waves-effect waves-light btn" id="clrRec">Clear Recipes</a>
+              </div>
         </div>
-          <div>
-            <a class="waves-effect waves-light btn" id="clear">Clear</a>
-            <a class="waves-effect waves-light btn" id="save">Save</a>
-            <a class="waves-effect waves-light btn" id="clrRec">Clear Recipes</a>
-          </div>
+        <a href="/" class="waves-effect waves-light btn" id="homeBtn">← Back To Home</a>
       </div>
-      <a href="/" class="waves-effect waves-light btn" id="homeBtn">← Back To Home</a>
     </div>
   </div>
-</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
