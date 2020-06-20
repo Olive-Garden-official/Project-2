@@ -63,10 +63,6 @@ $(document).ready(function(){
   
   function addRecipe(event){
     event.preventDefault();  
-    
-    recipeIngredients.forEach(item =>
-      submitIngredients(JSON.stringify(item))
-    );
 
     var recipeName = $("#recipeName").val();
     var recipeInstructions = $("#instructions").val(); 
@@ -87,9 +83,9 @@ $(document).ready(function(){
 
       submitRecipe(newRecipe);
       
-      
-
-      
+      recipeIngredients.forEach(item =>
+        submitIngredients(JSON.stringify(item))
+      );
 
       $("#recipeName").val("");
       $("#instructions").val(""); 
