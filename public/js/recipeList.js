@@ -3,16 +3,55 @@
 // const ingredients = require("../../models/ingredients");
 
 $(document).ready(function(){
-// var items = [''];
-// var rList = $('ul.mylist');
-// items.map( (item,i ) => {
-//       var li = $('<li/>')
-//         .addClass('ui-menu-item')
-//         .attr('role', 'menuitem')
-//         .appendTo(rList);
-//       $('<a class="ui-all">'+ i + ': ' + item.name + '<a/>')
-//         .appendTo(li);
-//     });
+
+  // function getRecipes(){
+  //   var data = {};
+
+  //   $.ajax({
+  //     url: "api/ingredients/name",
+  //     type: "POST"
+  //   }).then(function(listNames){
+  //     listNames.forEach(item => {
+  //       data[item.name] = null;
+  //     });
+  //     $('#ingredientName').autocomplete({
+  //       data
+  //     });
+  //   });
+  // };
+  // getRecipes();
+
+//   var mysql = require('mysql');
+
+  
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "root",
+//   database: "tripleD"
+// });
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   con.query("SELECT *, FROM recipes", function (err, result) {
+//     if (err) throw err;
+//     console.log(result);
+//   });
+// });
+
+
+  var items = [''];
+var rList = $('ul.mylist');
+items.map( (item,i ) => {
+      var li = $('<li/>')
+        .addClass('ui-menu-item')
+        .attr('role', 'menuitem')
+        .appendTo(rList);
+      $('<a class="ui-all">'+ i + ': ' + item.name + '<a/>')
+        .appendTo(li);
+    });
+
+    
 // ".mylist" will be changed to match the class name of the ul list created in the html and classes can be changed to match that of materialize.
 //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -57,12 +96,26 @@ $('#clear').click(function(){
 // create local storage for storing and retrieving recipe choices
 //uses cookies, sessionStorage, and localStorage to save and reuse user data across a user’s session.
 $('#save').on('click', function(){ 
+
+ 
+ 
   var input = $('#save').value;
   localStorage.setItem('server', input);
 
   $('#save').value = localStorage.getItem('server');
 
-  console.log("Item saved");
+  // alert("Item saved");
+
+  function creatediv() {
+    var div = document.createElement('div');
+    // div.innerHTML = document.getElementById('#recName').textContent;
+   
+    document.body.appendChild(div);
+    $(div).addClass("newDiv");
+}
+creatediv()
+
+
 
 });
 

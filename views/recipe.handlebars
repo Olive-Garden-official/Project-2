@@ -1,33 +1,44 @@
 <div id="recipe">
-<h4 class="collection-header">Recipes</h4>
+<h4 class="collection-header" id="recHead" >Recipes</h4>
 </div>  
   <div class="container">
     <div class="row">
       <div class="col s8">
         <div class="card mt-4" id="recipeHolder">
-            <div class="card-body">
-              <p>
-                <strong>ID</strong>: {{recipe.id}}</p>
-              <p>
-              <p>
-                <strong>Text</strong>: {{recipe.text}}</p>
-              <p>
-                <strong>Description:</strong> {{recipe.description}}</p>
+            <div class="card-body" id="recCard">
+              
+              <ul class="recCard">
+
+                <li id="myList">
+                  <strong id="listItem">Recipe Name:</strong> {{recipe.id}}</li>
+                <li id="myList">
+                  <strong id="listItem">Ingredients:</strong> {{recipe.text}}</li>
+                <li id="myList">
+                  <strong id="listItem">Preparation:</strong> {{recipe.description}}</li>
+
+              </ul> 
+
             </div>
-              <div>
+        </div>
+              <div class="container row col s12" id="topBtn">
                 <a class="waves-effect waves-light btn" id="clear">Clear</a>
                 <a class="waves-effect waves-light btn" id="save">Save</a>
-                <a class="waves-effect waves-light btn" id="clrRec">Clear Recipes</a>
               </div>
-        </div>
-        <a href="/" class="waves-effect waves-light btn" id="homeBtn">← Back To Home</a>
+              <div class="container row col s12">
+                <a class="waves-effect waves-light btn" id="clrRec">Clear Recipes</a>
+                <a href="/" class="waves-effect waves-light btn" id="homeBtn">← Back To Home</a>
+              </div>
+        
       </div>
     </div>
   </div>
 
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script src="/js/recipeList.js"></script>
 
