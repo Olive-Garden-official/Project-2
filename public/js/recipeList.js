@@ -77,8 +77,10 @@ $('#save').on('click', function(){
 
   function creatediv() {
     var div = document.createElement('div');
-    div.innerHTML = document.getElementById('#recName').textContent;
+    // div.innerHTML = document.getElementById('#recName').textContent;
+   
     document.body.appendChild(div);
+    $(div).addClass("newDiv");
 }
 creatediv()
 
