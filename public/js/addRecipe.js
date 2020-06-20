@@ -3,33 +3,7 @@ $(document).ready(function(){
   $('select').formSelect(); 
   $('.modal').modal();
 
-   var recipeIngredients = [];
-
-  // Have the data property pull from Ingredients table
-  // Name and link to image if wanted
-  // $('#ingredientName').autocomplete({
-  //   data: {
-  //     "apple": null,
-  //     "banana": null,
-  //     "cheddar cheese": null
-  //   },
-  // });
-
-  $('#ingredientQuantity').autocomplete({
-    data: {
-      1: null,
-      0.25: null,
-      0.75: null
-    },
-  });
-
-  $('#ingredientMeasurement').autocomplete({
-    data: {
-      "tsp": null,
-      "Tbsp": null,
-      "cup": null
-    },
-  });
+  var recipeIngredients = [];
 
   function getNames(){
     var data = {};
@@ -47,7 +21,37 @@ $(document).ready(function(){
     });
   };
 
-  getNames();
+  function getQuantity(){
+    var data = {};
+
+    $.ajax({
+      url: "api/ingredients/quantity",
+      type: "GET"
+    }).then(function(listQuantity){
+      listQuantity.forEach(item => {
+        data[item.quantity] = null;
+      });
+      $('#ingredientQuantity').autocomplete({
+        data
+      });
+    });
+  };
+
+  function getMeasurement(){
+    var data = {};
+
+    $.ajax({
+      url: "api/ingredients/measurement",
+      type: "GET"
+    }).then(function(listMeasurements){
+      listMeasurements.forEach(item => {
+        data[item.measurement] = null;
+      });
+      $('#ingredientMeasurement').autocomplete({
+        data
+      });
+    });
+  };
 
   function submitRecipe(recipeData){
     $.post("/api/recipes", recipeData);
@@ -133,19 +137,14 @@ $(document).ready(function(){
     };
   };
 
+  getNames();
+  getQuantity();
+  getMeasurement();
+
   $("#ingredientAdd").on("click", addIngredient);
   $("#recipeSubmit").on("click", addRecipe);
 
-
-
-
-
-
-
-
-
-
-})
+});
 
 
 
