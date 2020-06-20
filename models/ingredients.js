@@ -2,15 +2,15 @@ module.exports = function(sequelize, DataTypes) {
   var Ingredients = sequelize.define("Ingredients", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     quantity: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: true
     },
     measurement: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   });
   return Ingredients;  
