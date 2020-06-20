@@ -4,11 +4,40 @@
 
 $(document).ready(function(){
 
-  // $.get("schema.sql", function(data, status){
-  //   $("#myList").html(data);
-  //   alert(status);
-  // });
+  // function getRecipes(){
+  //   var data = {};
 
+  //   $.ajax({
+  //     url: "api/ingredients/name",
+  //     type: "POST"
+  //   }).then(function(listNames){
+  //     listNames.forEach(item => {
+  //       data[item.name] = null;
+  //     });
+  //     $('#ingredientName').autocomplete({
+  //       data
+  //     });
+  //   });
+  // };
+  // getRecipes();
+
+//   var mysql = require('mysql');
+
+  
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "root",
+//   database: "tripleD"
+// });
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   con.query("SELECT *, FROM recipes", function (err, result) {
+//     if (err) throw err;
+//     console.log(result);
+//   });
+// });
 
 
   var items = [''];
@@ -21,6 +50,8 @@ items.map( (item,i ) => {
       $('<a class="ui-all">'+ i + ': ' + item.name + '<a/>')
         .appendTo(li);
     });
+
+    
 // ".mylist" will be changed to match the class name of the ul list created in the html and classes can be changed to match that of materialize.
 //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
