@@ -3,16 +3,16 @@
 // const ingredients = require("../../models/ingredients");
 
 $(document).ready(function(){
-// var items = [''];
-// var rList = $('ul.mylist');
-// items.map( (item,i ) => {
-//       var li = $('<li/>')
-//         .addClass('ui-menu-item')
-//         .attr('role', 'menuitem')
-//         .appendTo(rList);
-//       $('<a class="ui-all">'+ i + ': ' + item.name + '<a/>')
-//         .appendTo(li);
-//     });
+var items = [''];
+var rList = $('ul.mylist');
+items.map( (item,i ) => {
+      var li = $('<li/>')
+        .addClass('ui-menu-item')
+        .attr('role', 'menuitem')
+        .appendTo(rList);
+      $('<a class="ui-all">'+ i + ': ' + item.name + '<a/>')
+        .appendTo(li);
+    });
 // ".mylist" will be changed to match the class name of the ul list created in the html and classes can be changed to match that of materialize.
 //---------------------------------------------------------------------------------------------------------------------------------------------------------
 
