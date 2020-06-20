@@ -4,27 +4,31 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/styles.css" type="text/css">
   <title>Home Page</title>
 </head>
 
 <body>
-  <header>
-    <div class="card">
-      <div class="card-image">
-        <img src="/images/cooking-header.jpg">
-        <div>
-          <h1 class="titlecontent">Dinner, Dips, and Desserts</h1>
-        </div>
-      </div>
+  <header id="burbenflurben">
+    <div class="headcontainer">
+      <img class="headerimage" src="/images/cooking-header.jpg">
+      <h2 class="pagetitle">Dinner, Dips, and Desserts</h2>
     </div>
   </header>
-  <div id="navbar">
-    <a href="/">Home</a>
-    <a href="/newrecipe">Contribute Recipies</a>
-    <a href="/recipe">Recipe</a>
-    <a href="/shopping">Shopping List</a>
-  </div>
+  
+  <nav class="sticky">
+    <div class="nav-wrapper deep-purple lighten-1">
+      <a href="/" class="brand-logo right pageinital">DD&D</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/newrecipe">Contribute Recipes</a></li>
+        <li><a href="/recipe">Saved Recipes</a></li>
+        <li><a href="/shopping">Shopping List</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class="row content">
     <div class="col s2 grey lighten-4 sidebar"></div>
     <div class="col s8">
@@ -38,7 +42,6 @@
   {{!-- link to local js page --}}
   <script src="/js/main.js"></script>
   {{!-- link to google fonts for roboto --}}
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </body>
 
 </html>
