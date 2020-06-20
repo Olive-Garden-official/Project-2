@@ -3,7 +3,15 @@
 // const ingredients = require("../../models/ingredients");
 
 $(document).ready(function(){
-var items = [''];
+
+  $.get("/newrecipe", function(data, status){
+    $("#myList").html(data);
+    alert(status);
+  });
+
+
+
+  var items = [''];
 var rList = $('ul.mylist');
 items.map( (item,i ) => {
       var li = $('<li/>')
@@ -57,6 +65,9 @@ $('#clear').click(function(){
 // create local storage for storing and retrieving recipe choices
 //uses cookies, sessionStorage, and localStorage to save and reuse user data across a user’s session.
 $('#save').on('click', function(){ 
+
+ 
+ 
   var input = $('#save').value;
   localStorage.setItem('server', input);
 
