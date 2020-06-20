@@ -3,40 +3,70 @@ $(document).ready(function(){
   $('select').formSelect(); 
   $('.modal').modal();
 
-   var recipeIngredients = [];
+  var recipeIngredients = [];
 
-  // Have the data property pull from Ingredients table
-  // Name and link to image if wanted
-  $('#ingredientName').autocomplete({
-    data: {
-      "apple": null,
-      "banana": null,
-      "cheddar cheese": null
-    },
-  });
+  function getNames(){
+    var data = {};
 
-  $('#ingredientQuantity').autocomplete({
-    data: {
-      1: null,
-      0.25: null,
-      0.75: null
-    },
-  });
+    $.ajax({
+      url: "api/ingredients/name",
+      type: "GET"
+    }).then(function(listNames){
+      listNames.forEach(item => {
+        data[item.name] = null;
+      });
+      $('#ingredientName').autocomplete({
+        data
+      });
+    });
+  };
 
-  $('#ingredientMeasurement').autocomplete({
-    data: {
-      "tsp": null,
-      "Tbsp": null,
-      "cup": null
-    },
-  });
+  function getQuantity(){
+    var data = {};
+
+    $.ajax({
+      url: "api/ingredients/quantity",
+      type: "GET"
+    }).then(function(listQuantity){
+      listQuantity.forEach(item => {
+        data[item.quantity] = null;
+      });
+      $('#ingredientQuantity').autocomplete({
+        data
+      });
+    });
+  };
+
+  function getMeasurement(){
+    var data = {};
+
+    $.ajax({
+      url: "api/ingredients/measurement",
+      type: "GET"
+    }).then(function(listMeasurements){
+      listMeasurements.forEach(item => {
+        data[item.measurement] = null;
+      });
+      $('#ingredientMeasurement').autocomplete({
+        data
+      });
+    });
+  };
 
   function submitRecipe(recipeData){
     $.post("/api/recipes", recipeData);
   };
+
+  function submitIngredients(ingredientData){
+    $.post("/api/ingredients", ingredientData);
+  }
   
   function addRecipe(event){
-    event.preventDefault();
+    event.preventDefault();  
+    
+    recipeIngredients.forEach(item =>
+      submitIngredients(JSON.stringify(item))
+    );
 
     var recipeName = $("#recipeName").val();
     var recipeInstructions = $("#instructions").val(); 
@@ -56,6 +86,10 @@ $(document).ready(function(){
       };
 
       submitRecipe(newRecipe);
+      
+      
+
+      
 
       $("#recipeName").val("");
       $("#instructions").val(""); 
@@ -103,19 +137,14 @@ $(document).ready(function(){
     };
   };
 
+  getNames();
+  getQuantity();
+  getMeasurement();
+
   $("#ingredientAdd").on("click", addIngredient);
   $("#recipeSubmit").on("click", addRecipe);
 
-
-
-
-
-
-
-
-
-
-})
+});
 
 
 
