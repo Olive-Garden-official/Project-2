@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/test", function(req, res) {
+  app.get("/", function(req, res) {
     db.Recipes.findAll({}).then(function(tripleD) {
       res.render("index", {
         msg: "Welcome!",
