@@ -4,10 +4,10 @@
 
 $(document).ready(function(){
 
-  $.get("/newrecipe", function(data, status){
-    $("#myList").html(data);
-    alert(status);
-  });
+  // $.get("schema.sql", function(data, status){
+  //   $("#myList").html(data);
+  //   alert(status);
+  // });
 
 
 
@@ -73,7 +73,16 @@ $('#save').on('click', function(){
 
   $('#save').value = localStorage.getItem('server');
 
-  console.log("Item saved");
+  // alert("Item saved");
+
+  function creatediv() {
+    var div = document.createElement('div');
+    div.innerHTML = document.getElementById('#recName').textContent;
+    document.body.appendChild(div);
+}
+creatediv()
+
+
 
 });
 
